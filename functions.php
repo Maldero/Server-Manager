@@ -34,4 +34,8 @@ function checkUserPosition($user) {
   return $_SESSION['logged'];
 }
 
+function shutdownButton() {
+  system("sudo init 0");
+}
+
 ?>
