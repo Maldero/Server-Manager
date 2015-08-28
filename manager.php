@@ -20,7 +20,7 @@ if(!isset($_SESSION['logged']))
         </a>
       </div>
       <div id="infoUname">
-        <li>You're working on: <?php echo php_uname();?></li>
+        <li>You're working on: <font color="blue"><?php echo php_uname();?></font></li>
       </div>
     </body>
 </html>
