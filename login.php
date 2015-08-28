@@ -20,6 +20,5 @@ else {
     else
       exit("Wrong user or password.".header("refresh: 2; index.php"));
     }
-  }
 }
 ?>
