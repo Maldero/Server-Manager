@@ -22,11 +22,19 @@ if(!isset($_SESSION['logged']))
       <div id="infoUname">
         <li>You're working on: <font color="blue"><?php echo php_uname(); ?></font></li>
       </div>
-      <form method="POST" action="manager.php">
-        <div id="shutdown">
-          <?php if(isset($_POST['shutdown'])) shutdownButton(); ?>
-          <input type="submit" value="Shutdown server" name="shutdown"/>
-        </div>
-      </form>
+    <?php if($_SESSION['logged'] == "Administrator") { ?>
+	  <div id="buttonsMain">
+		  <form method="POST" action="manager.php">
+		    <div id="shutdownButton">
+			    <?php if(isset($_POST['shutdown'])) { header("Location: manager.php"); shutdownButton(); } ?>
+			    <input type="image" name="shutdown" style="width:96px;" src="/img/shutdown.png"/><span>Shutdown</span>
+		    </div>
+		    <div id="rebootButton">
+			    <?php if(isset($_POST['reboot'])) { header("Location: manager.php"); rebootButton(); } ?>
+			    <input type="image" name="reboot" style="width:96px;" src="/img/reboot.png"/><span>Reboot</span>
+		    </div>
+		  </form>
+	  <?php } ?>
+	  </div>
     </body>
 </html>
