@@ -13,11 +13,25 @@ function checkUserInPasswd($user) {
 }
 
 function checkUserInDatabase($user, $passwd) {
- $query = mysql_query("SELECT user_name, passwd FROM users WHERE user_name = '".$_POST['user']."' AND passwd = '".$_POST['password']."';");
+ $query = mysql_query("SELECT user_name, passwd FROM users WHERE user_name = '".$user."' AND passwd = '".$password."';");
  if(mysql_num_rows($query) > 0)
    return true;
  else 
    return false;
+}
+
+function checkUserPosition($user) {
+  $query = mysql_query("SELECT user_pos FROM users WHERE user_name = '".$user."';");
+  $mysqlToArray = mysql_fetch_array($query);
+  switch($mysqlToArray[0]) {
+    case "0":
+      $_SESSION['logged'] = "User";
+      break;
+    case "1":
+      $_SESSION['logged'] = "Administrator";
+      break;
+  }
+  return $_SESSION['logged'];
 }
 
 ?>
