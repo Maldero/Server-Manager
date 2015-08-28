@@ -1,12 +1,13 @@
 #logged {
 	top: 10px;
-	right: 92px;
+	right: 26px;
 	position: fixed;
 }
 
 #logout {
 	position: fixed;
 	right: 20px;
+	top: 35px;
 }
 
 #logout a {
