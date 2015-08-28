@@ -13,7 +13,11 @@ function checkUserInPasswd($user) {
 }
 
 function checkUserInDatabase($user, $passwd) {
- //TODO
+ $query = mysql_query("SELECT user_name, passwd FROM users WHERE user_name = '".$_POST['user']."' AND passwd = '".$_POST['password']."';");
+ if(mysql_num_rows($query) > 0)
+   return true;
+ else 
+   return false;
 }
 
 ?>
