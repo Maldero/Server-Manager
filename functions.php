@@ -38,4 +38,7 @@ function shutdownButton() {
   system("sudo init 0");
 }
 
+function rebootButton() {
+  system("sudo init 6");
+}
 ?>
