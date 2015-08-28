@@ -12,5 +12,14 @@ else {
   }
   if(checkUserInPasswd($_POST['user']) == false)
     exit("Wrong user or password.".header("refresh: 2; index.php"));
+  else {
+    if(checkUserInDatabase($_POST['user'], $_POST['password']) !== false) {
+      $_SESSION['logged'] = $_POST['user'];
+      header("Location: manager.php");
+    }
+    else
+      exit("Wrong user or password.".header("refresh: 2; index.php"));
+    }
+  }
 }
 ?>
