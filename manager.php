@@ -1,5 +1,6 @@
 <?php
 require "mysqlConfig.php";
+include "functions.php";
 session_start();
 if(!isset($_SESSION['logged']))
   exit(header("Location: index.php"));
@@ -11,7 +12,7 @@ if(!isset($_SESSION['logged']))
     </head>
     <body>
       <div id="logged">
-        <?php echo "You're logged as <font color=\"blue\">".ucfirst($_SESSION['logged'])."</font>";?>
+        <?php echo "You're logged as <font color=\"blue\">".ucfirst(checkUserPosition($_SESSION['logged']))."</font>";?>
       </div>
       <div id="logout">
         <a href="logout.php">
