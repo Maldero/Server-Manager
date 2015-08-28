@@ -12,7 +12,7 @@ if(!isset($_SESSION['logged']))
     </head>
     <body>
       <div id="logged">
-        <?php echo "You're logged as <font color=\"blue\">".ucfirst(checkUserPosition($_SESSION['logged']))."</font>";?>
+        <?php echo "You're logged as <font color=\"blue\">".ucfirst(checkUserPosition($_SESSION['logged']))."</font>"; ?>
       </div>
       <div id="logout">
         <a href="logout.php">
@@ -20,7 +20,13 @@ if(!isset($_SESSION['logged']))
         </a>
       </div>
       <div id="infoUname">
-        <li>You're working on: <font color="blue"><?php echo php_uname();?></font></li>
+        <li>You're working on: <font color="blue"><?php echo php_uname(); ?></font></li>
       </div>
+      <form method="POST" action="manager.php">
+        <div id="shutdown">
+          <?php if(isset($_POST['shutdown'])) shutdownButton(); ?>
+          <input type="submit" value="Shutdown server" name="shutdown"/>
+        </div>
+      </form>
     </body>
 </html>
