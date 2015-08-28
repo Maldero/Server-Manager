@@ -1,0 +1,18 @@
+#logged {
+	top: 9px;
+	right: 95px;
+	position: fixed;
+}
+
+#logout {
+	position: fixed;
+	right: 20px;
+}
+
+#logout a {
+  text-decoration: none;
+}
+#infoUname {
+	position: fixed;
+	list-style-type: none;
+}
