@@ -17,3 +17,57 @@
 	position: fixed;
 	list-style-type: none;
 }
+
+#buttonsMain {
+	position: fixed;
+	bottom: 10px;
+	width: 212px;
+	height: 96px;
+}
+
+#shutdownButton {
+	float: left;
+	padding-right: 20px;
+}
+
+div #shutdownButton span {
+    display: none;
+    width: 100px;
+}
+
+div #shutdownButton:hover span{
+    display: inline;
+    position: absolute;
+	margin-top: 38px;
+	margin-left: -98px;
+    background: #dddddd;
+    border-radius: 25px;
+    color: #000000;
+	-moz-opacity: 0.8;
+	opacity:.80;
+	filter: alpha(opacity=80);
+	text-align: center;
+}
+
+#rebootButton {
+	
+}
+
+div #rebootButton span {
+    display: none;
+    width: 100px;
+}
+
+div #rebootButton:hover span{
+    display: inline;
+    position: absolute;
+	margin-top: 38px;
+	margin-left: -98px;
+    background: #dddddd;
+    border-radius: 25px;
+    color: #000000;
+	-moz-opacity: 0.8;
+	opacity:.80;
+	filter: alpha(opacity=80);
+	text-align: center;
+}
