@@ -2,6 +2,7 @@
 require "mysqlConfig.php";
 include "functions.php";
 session_start();
+
 if(!isset($_SESSION['logged']))
   exit(header("Location: index.php"));
 ?>
@@ -26,12 +27,12 @@ if(!isset($_SESSION['logged']))
     <div id="buttonsMain">
       <form method="POST" action="manager.php">
         <div id="shutdownButton">
-          <?php if(isset($_POST['shutdown'])) { header("Location: manager.php"); shutdownButton(); } ?>
-          <input type="image" name="shutdown" style="width:96px;" src="/img/shutdown.png"/><span>Shutdown</span>
+          <?php if(isset($_COOKIE['shutdown'])) { shutdownButton(); unset($_COOKIE['shutdown']); setcookie('shutdown', '', time() - 1, '/'); header("Location: manager.php"); } ?>
+          <input type="image" onclick="requestShutdown()" name="shutdown" style="width:64px;" src="/img/shutdown.png"/><span>Shutdown</span>
         </div>
         <div id="rebootButton">
-          <?php if(isset($_POST['reboot'])) { header("Location: manager.php"); rebootButton(); } ?>
-          <input type="image" name="reboot" style="width:96px;" src="/img/reboot.png"/><span>Reboot</span>
+          <?php if(isset($_COOKIE['reboot'])) { rebootButton(); unset($_COOKIE['reboot']); setcookie('reboot', '', time() - 1, '/'); header("Location: manager.php"); } ?>
+          <input type="image" onclick="requestReboot()" name="reboot" style="width:64px;" src="/img/reboot.png"/><span>Reboot</span>
         </div>
       </form>
       <div id="commandLine">
