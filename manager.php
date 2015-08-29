@@ -34,11 +34,13 @@ if(!isset($_SESSION['logged']))
           <input type="image" name="reboot" style="width:96px;" src="/img/reboot.png"/><span>Reboot</span>
         </div>
       </form>
-      <form method="POST" action="manager.php">
-      	<?php if(isset($_POST['command'])) { header("Location: manager.php"); commandExec($_POST['command']); } ?>
-      	<div class="commandLine">Enter your command: <input type="text" name="command" size="15" placeholder="Command"></div>
-      </form>
-	  <?php } ?>
+      <div id="commandLine">
+        <form method="POST" action="manager.php">
+      	  <?php if(isset($_POST['command'])) { header("Location: manager.php"); commandExec($_POST['command']); } ?>
+      	  <div class="commandLine">Enter your command: <input type="text" name="command" size="15" placeholder="Command"></div>
+        </form>
+      </div>
+    <?php } ?>
     </div>
     </body>
 </html>
