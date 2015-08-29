@@ -21,8 +21,8 @@
 #buttonsMain {
 	position: fixed;
 	bottom: 10px;
-	width: 212px;
-	height: 96px;
+	width: 148px;
+	height: 64px;
 }
 
 #shutdownButton {
@@ -31,21 +31,21 @@
 }
 
 div #shutdownButton span {
-	display: none;
-	width: 100px;
+    display: none;
+    width: 78px;
 }
 
 div #shutdownButton:hover span{
-	display: inline;
-	position: absolute;
-	margin-top: 38px;
-	margin-left: -98px;
-	background: #dddddd;
-	border-radius: 25px;
-	color: #000000;
-	-moz-opacity: 0.8;
-	opacity:.80;
-	filter: alpha(opacity=80);
+    display: inline;
+    position: absolute;
+	margin-top: -23px;
+	margin-left: -70px;
+    background: #dddddd;
+    border-radius: 25px;
+    color: #000000;
+	-moz-opacity: 0.95;
+	opacity:.95;
+	filter: alpha(opacity=95);
 	text-align: center;
 }
 
@@ -54,20 +54,31 @@ div #shutdownButton:hover span{
 }
 
 div #rebootButton span {
-	display: none;
-	width: 100px;
+    display: none;
+    width: 72px;
 }
 
 div #rebootButton:hover span{
-	display: inline;
-	position: absolute;
-	margin-top: 38px;
-	margin-left: -98px;
-	background: #dddddd;
-	border-radius: 25px;
-	color: #000000;
-	-moz-opacity: 0.8;
-	opacity:.80;
-	filter: alpha(opacity=80);
+    display: inline;
+    position: absolute;
+	margin-top: -23px;
+	margin-left: -70px;
+    background: #dddddd;
+    border-radius: 25px;
+    color: #000000;
+	-moz-opacity: 0.95;
+	opacity:.95;
+	filter: alpha(opacity=95);
 	text-align: center;
+}
+
+.commandLine {
+	font-size: 24px;
+	position: fixed;
+	bottom: 26px;
+	padding-left: 230px;
+}
+
+.commandLine input[type=text] {
+	font-size: 22px;
 }
