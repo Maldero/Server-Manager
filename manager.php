@@ -43,4 +43,5 @@ if(!isset($_SESSION['logged']))
     <?php } ?>
     </div>
     </body>
+<script src="js/manager.js"></script>
 </html>
