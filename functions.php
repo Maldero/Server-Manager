@@ -41,4 +41,8 @@ function shutdownButton() {
 function rebootButton() {
   system("sudo init 6");
 }
+
+function commandExec($command) {
+  system("sudo -u root ".$command);
+}
 ?>
