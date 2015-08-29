@@ -9,7 +9,6 @@
 	right: 20px;
 	top: 35px;
 }
-
 #logout a {
 	text-decoration: none;
 }
@@ -31,18 +30,18 @@
 }
 
 div #shutdownButton span {
-    display: none;
-    width: 78px;
+	display: none;
+	width: 78px;
 }
 
 div #shutdownButton:hover span{
-    display: inline;
-    position: absolute;
+	display: inline;
+	position: absolute;
 	margin-top: -23px;
 	margin-left: -70px;
-    background: #dddddd;
-    border-radius: 25px;
-    color: #000000;
+	background: #dddddd;
+	border-radius: 25px;
+	color: #000000;
 	-moz-opacity: 0.95;
 	opacity:.95;
 	filter: alpha(opacity=95);
@@ -54,18 +53,18 @@ div #shutdownButton:hover span{
 }
 
 div #rebootButton span {
-    display: none;
-    width: 72px;
+	display: none;
+	width: 72px;
 }
 
 div #rebootButton:hover span{
-    display: inline;
-    position: absolute;
+	display: inline;
+	position: absolute;
 	margin-top: -23px;
 	margin-left: -70px;
-    background: #dddddd;
-    border-radius: 25px;
-    color: #000000;
+	background: #dddddd;
+	border-radius: 25px;
+	color: #000000;
 	-moz-opacity: 0.95;
 	opacity:.95;
 	filter: alpha(opacity=95);
