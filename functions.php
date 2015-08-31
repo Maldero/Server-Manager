@@ -45,4 +45,9 @@ function rebootButton() {
 function commandExec($command) {
   system("sudo -u root ".$command);
 }
+
+function pingSend($address) {
+	$command = shell_exec("ping -c4 -i0.2 ".$address);
+	echo "<pre>$command</pre>";
+}
 ?>
