@@ -7,7 +7,7 @@ $disk = shell_exec("df -h -t rootfs");
 $outputDisk = explode(" ", $disk);
 
 echo '
-	<html><div id="auto"><table id="memory">
+	<html><div id="auto"><table id="rMonitTable1">
 		<tr>
 			<td>
 				</br>
@@ -31,7 +31,7 @@ echo '
 			</td>
 		</tr>
 	</table>
-	<table>
+	<table id="rMonitTable2">
 		<tr>
 			<td>
 				</br>
@@ -61,13 +61,10 @@ echo '
 			</td>
 		</tr>
 	</table>
-	<table>
+	<table id="rMonitTable3">
 		<tr>
 			<td>
 				</br>
-			</td>
-			<td>
-				'.$outputDisk[6].'
 			</td>
 			<td>
 				'.$outputDisk[8].'
@@ -82,9 +79,6 @@ echo '
 		<tr>
 			<td>
 				Disk:
-			</td>
-			<td>
-				'.$outputDisk[23].'
 			</td>
 			<td>
 				'.$outputDisk[25].'
@@ -107,7 +101,7 @@ echo '
 	function refresh() {
 		setTimeout( function() {
 			$(\'#auto\').load(\'resourceMonitor.php\');
-		}, 100000000000);
+		}, 100000000000000000);
 	}
 	</script></html>';
 ?>
