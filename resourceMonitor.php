@@ -1,7 +1,4 @@
 <?php
-if(!isset($_SESSION['logged']))
-	header("Location: index.php");
-
 $memory = shell_exec("free -m");
 $outputMemory = explode(" ", $memory);
 $CPU = shell_exec("iostat -c");
@@ -10,7 +7,7 @@ $disk = shell_exec("df -h -t rootfs");
 $outputDisk = explode(" ", $disk);
 
 echo '
-	<table id="memory">
+	<html><div id="auto"><table id="memory">
 		<tr>
 			<td>
 				</br>
@@ -99,5 +96,18 @@ echo '
 				'.$outputDisk[31].'
 			</td>
 		</tr>
-	</table>';
+	</table></div>
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript">
+	$(document).ready( function() {
+		$(\'#auto\').load(\'resourceMonitor.php\');
+		refresh();
+	});
+	
+	function refresh() {
+		setTimeout( function() {
+			$(\'#auto\').load(\'resourceMonitor.php\');
+		}, 10000);
+	}
+	</script></html>';
 ?>
