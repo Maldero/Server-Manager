@@ -19,13 +19,3 @@ else {
 	return
 }
 }
-
-function requestPingSend() {
-	var target = document.getElementById("requestPing").value;
-	if(target == "")
-		alert("Address cannot be empty.");
-	else {
-		document.cookie="ping="+target;
-		location.reload();
-	}
-}
