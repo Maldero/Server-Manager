@@ -99,3 +99,13 @@ div #rebootButton:hover span{
 	border: 3px black solid;
 	border-radius: 20px;
 }
+
+#ping {
+	border: 1px solid black;
+	width: 150px;
+	height: 25px;
+	margin-bottom: 120px;
+	margin-left: 600px;
+	bottom: 0px;
+	position: fixed;
+}
