@@ -43,9 +43,8 @@ if(!isset($_SESSION['logged']))
       </div>
     	<div id="ping">
         <form method="POST" action="manager.php">
-	  <?php if(isset($_COOKIE['ping'])) { pingSend($_COOKIE['ping']); unset($_COOKIE['ping']); setcookie('ping', '', time() - 1, '/'); } ?>
-	  <input type="text" id="requestPing" size="10" placeholder="Address">
-	  <input type="submit" onClick="requestPingSend()" value="PING"/>
+	  <div id="pingDiv">PING: <input type="text" id="pingInput" name="ping" size="10" placeholder="Address"></div>
+	  <?php if(isset($_POST['ping'])) { echo "<script>var pingDiv = document.getElementById(\"pingDiv\"); var ping = document.getElementById(\"ping\"); ping.style.height=\"145px\"; pingDiv.style.display=\"none\"; </script>"; pingSend($_POST['ping']); header("refresh: 5;"); } ?>
         </form>
       </div>
     <?php } ?>
