@@ -94,14 +94,11 @@ echo '
 	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
 	<script type="text/javascript">
 	$(document).ready( function() {
-		$(\'#auto\').load(\'resourceMonitor.php\');
-		refresh();
+		setInterval(refresh, 250);
 	});
 	
 	function refresh() {
-		setTimeout( function() {
-			$(\'#auto\').load(\'resourceMonitor.php\');
-		}, 100000000000000000);
+			$("#auto").load(location.href + " #auto>*", "");
 	}
 	</script></html>';
 ?>
