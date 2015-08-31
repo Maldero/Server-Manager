@@ -1,7 +1,7 @@
 <?php
 $memory = shell_exec("free -m");
 $outputMemory = explode(" ", $memory);
-$CPU = shell_exec("iostat -c");
+$CPU = substr(shell_exec("iostat -c"), 65);
 $outputCPU = explode(" ", $CPU);
 $disk = shell_exec("df -h -t rootfs");
 $outputDisk = explode(" ", $disk);
@@ -37,13 +37,13 @@ echo '
 				</br>
 			</td>
 			<td>
-				'.ucfirst(substr($outputCPU[7], 1)).'
+				'.ucfirst(substr($outputCPU[0], 1)).'
 			</td>
 			<td>
-				'.ucfirst(substr($outputCPU[11], 1)).'
+				'.ucfirst(substr($outputCPU[4], 1)).'
 			</td>
 			<td>
-				'.ucfirst(substr($outputCPU[17], 1)).'
+				'.ucfirst(substr($outputCPU[10], 1)).'
 			</td>
 		</tr>
 		<tr>
@@ -51,13 +51,13 @@ echo '
 				CPU:
 			</td>
 			<td>
-				'.$outputCPU[28].'%
+				'.$outputCPU[21].'%
 			</td>
 			<td>
-				'.$outputCPU[36].'%
+				'.$outputCPU[29].'%
 			</td>
 			<td>
-				'.$outputCPU[47].'%
+				'.$outputCPU[40].'%
 			</td>
 		</tr>
 	</table>
@@ -107,7 +107,7 @@ echo '
 	function refresh() {
 		setTimeout( function() {
 			$(\'#auto\').load(\'resourceMonitor.php\');
-		}, 10000);
+		}, 100000000000);
 	}
 	</script></html>';
 ?>
