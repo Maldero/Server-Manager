@@ -43,16 +43,16 @@ if(!isset($_SESSION['logged']))
       </div>
     	<div id="ping">
         <form method="POST" action="manager.php">
-			    <?php if(isset($_COOKIE['ping'])) { pingSend($_COOKIE['ping']); unset($_COOKIE['ping']); setcookie('ping', '', time() - 1, '/'); } ?>
-			    <input type="text" id="requestPing" size="10" placeholder="Address">
-			    <input type="submit" onClick="requestPingSend()" value="PING"/>
+	  <?php if(isset($_COOKIE['ping'])) { pingSend($_COOKIE['ping']); unset($_COOKIE['ping']); setcookie('ping', '', time() - 1, '/'); } ?>
+	  <input type="text" id="requestPing" size="10" placeholder="Address">
+	  <input type="submit" onClick="requestPingSend()" value="PING"/>
         </form>
       </div>
     <?php } ?>
     </div>
     <div id="resourceMonitor">
-		  <?php include "resourceMonitor.php"; ?>
-	  </div>
+	<?php include "resourceMonitor.php"; ?>
+    </div>
     </body>
 <script src="js/manager.js"></script>
 </html>
