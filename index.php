@@ -13,11 +13,14 @@ else {
       <link href="css/index.css" rel="stylesheet" type="text/css">
     </head>
     <body>
-      <form method="POST" action="login.php">
-        <div>User: <input type="text" size="10" name="user"/></div>
-        <div>Password: <input type="password" size="10" name="password"/></br></div>
-        <input type="submit" value="Log in"/>
-      </form>
+      <div id="projectName">
+			  <h2>Server Manager</h2>
+		  </div>
+			<form method="POST" action="login.php">
+				<div class="usernameText">Username <input class="username" type="text" size="10" name="user"/></div>
+				<div class="passwordText">Password <input class="password" type="password" size="10" name="password"/></br></div>
+				<div><input class="submitLogin" type="submit" value="Log in"/></div>
+			</form>
     </body>
   </html>';
 }
