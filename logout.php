@@ -4,6 +4,6 @@ if(!isset($_SESSION['logged']))
 	exit(header("Location: index.php"));
 else {
 	session_destroy();
-  exit("You have been logged out.".header("refresh: 1; index.php"));
+	exit("You have been logged out.".header("refresh: 1; index.php"));
 }
 ?>
