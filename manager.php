@@ -4,54 +4,34 @@ include "functions.php";
 session_start();
 
 if(!isset($_SESSION['logged']))
-  exit(header("Location: index.php"));
+	exit(header("Location: index.php"));
 ?>
 <html>
     <head>
-      <title>Server Manager</title>
-      <link href="css/manager.css" rel="stylesheet" type="text/css">
-    </head>
+		<title>Server Manager</title>
+		<link href="css/manager.css" rel="stylesheet" type="text/css">
+	</head>
     <body>
-      <div id="logged">
-        <?php echo "You're logged as <font color=\"blue\">".ucfirst(checkUserPosition($_SESSION['logged']))."</font>"; ?>
-      </div>
-      <div id="logout">
-        <a href="logout.php">
-          <input type="button" value="Logout"/>
-        </a>
-      </div>
-      <div id="infoUname">
-        <li>You're working on: <font color="blue"><?php echo php_uname(); ?></font></li>
-      </div>
-    <?php if($_SESSION['logged'] == "Administrator") { ?>
-    <div id="buttonsMain">
-      <form method="POST" action="manager.php">
-        <div id="shutdownButton">
-          <?php if(isset($_COOKIE['shutdown'])) { shutdownButton(); unset($_COOKIE['shutdown']); setcookie('shutdown', '', time() - 1, '/'); header("Location: manager.php"); } ?>
-          <input type="image" onclick="requestShutdown()" name="shutdown" style="width:64px;" src="/img/shutdown.png"/><span>Shutdown</span>
-        </div>
-        <div id="rebootButton">
-          <?php if(isset($_COOKIE['reboot'])) { rebootButton(); unset($_COOKIE['reboot']); setcookie('reboot', '', time() - 1, '/'); header("Location: manager.php"); } ?>
-          <input type="image" onclick="requestReboot()" name="reboot" style="width:64px;" src="/img/reboot.png"/><span>Reboot</span>
-        </div>
-      </form>
-      <div id="commandLine">
-        <form method="POST" action="manager.php">
-      	  <?php if(isset($_POST['command'])) { header("Location: manager.php"); commandExec($_POST['command']); } ?>
-      	  <div class="commandLine">Enter your command: <input type="text" name="command" size="15" placeholder="Command"></div>
-        </form>
-      </div>
-    	<div id="ping">
-        <form method="POST" action="manager.php">
-	  <div id="pingDiv">PING: <input type="text" id="pingInput" name="ping" size="10" placeholder="Address"></div>
-	  <?php if(isset($_POST['ping'])) { echo "<script>var pingDiv = document.getElementById(\"pingDiv\"); var ping = document.getElementById(\"ping\"); ping.style.height=\"145px\"; pingDiv.style.display=\"none\"; </script>"; pingSend($_POST['ping']); header("refresh: 5;"); } ?>
-        </form>
-      </div>
-    <?php } ?>
-    </div>
-    <div id="resourceMonitor">
-	<?php include "resourceMonitor.php"; ?>
-    </div>
-    </body>
+		<div id="logged">
+			<?php echo "You're logged as <font color=\"blue\">".ucfirst(checkUserPosition($_SESSION['logged']))."</font>"; ?>
+		</div>
+		<div id="logout">
+			<a href="logout.php">
+				<input type="button" value="Logout"/>
+			</a>
+		</div>
+		<div id="linuxLogo">
+			<img src="img/linuxLogo.svg" alt="LinuxLogo" height="256" width="256">
+		</div>
+		<div id="resourceMonitor">
+			<?php include "resourceMonitor.php"; ?>
+		</div>
+		<div id="virtualDesktopButton">
+			<form method="POST" action="manager.php">
+				<input type="submit" name="openVirtualDesktop" value="Virtual Desktop"/>
+			</form>
+		</div>
+		<?php if(isset($_POST['openVirtualDesktop'])) { setcookie("virtualDesktop", "open", time() + (86400 * 1), "/"); include "virtualDesktop.php"; header("Location: manager.php"); } if(isset($_COOKIE['virtualDesktop'])) { if($_COOKIE['virtualDesktop'] == "open") include "virtualDesktop.php"; } ?>
+	</body>
 <script src="js/manager.js"></script>
 </html>
